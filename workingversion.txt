@@ -6,8 +6,7 @@
         "description": "...because it's awesome"
     },
     "host": "mahdjoubi.azure-api.net",
-	"basePath": "/mahdjoubitest",
-    "schemes": ["https"],
+    "schemes": ["http", "https"],
     "securityDefinitions": {
         "apiKeyHeader": {
             "type": "apiKey",
@@ -26,10 +25,10 @@
         "apiKeyQuery": []
     }],
     "paths": {
-        "/PowerShellTeamGet": {
+        "/api/PowerShellTeamGet": {
             "get": {
                 "description": "Returns a listing of the most recent posts on the PowerShell Team's blog.",
-                "operationId": "get-powershellteamget",
+                "operationId": "PowerShellTeamGet",
                 "summary": "Gets PowerShell Team posts",
                 "parameters": [{
                     "name": "tag",
@@ -48,10 +47,10 @@
                 "produces": ["application/json"]
             }
         },
-        "/ScriptingGuysGet": {
+        "/api/ScriptingGuysGet": {
             "get": {
                 "description": "Returns a listing of the most recent posts on the Scripting Guys blog.",
-                "operationId": "get-scriptingguysget",
+                "operationId": "ScriptingGuysGet",
                 "summary": "Gets Scripting Guys posts",
                 "parameters": [{
                     "name": "tag",
