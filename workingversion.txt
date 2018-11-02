@@ -1,0 +1,129 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Serverless PowerShell API",
+        "version": "1.0",
+        "description": "...because it's awesome"
+    },
+    "host": "mahdjoubi.azure-api.net",
+	"basePath": "/mahdjoubitest",
+    "schemes": ["https"],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [{
+        "apiKeyHeader": []
+    }, {
+        "apiKeyQuery": []
+    }],
+    "paths": {
+        "/PowerShellTeamGet": {
+            "get": {
+                "description": "Returns a listing of the most recent posts on the PowerShell Team's blog.",
+                "operationId": "get-powershellteamget",
+                "summary": "Gets PowerShell Team posts",
+                "parameters": [{
+                    "name": "tag",
+                    "in": "query",
+                    "description": "Filter results to only blog posts with the specified tag",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Details of up to 10 of the most recent blog posts",
+                        "schema": {
+                            "$ref": "#/definitions/ApiPowerShellTeamGetGet200ApplicationJsonResponse"
+                        }
+                    }
+                },
+                "produces": ["application/json"]
+            }
+        },
+        "/ScriptingGuysGet": {
+            "get": {
+                "description": "Returns a listing of the most recent posts on the Scripting Guys blog.",
+                "operationId": "get-scriptingguysget",
+                "summary": "Gets Scripting Guys posts",
+                "parameters": [{
+                    "name": "tag",
+                    "in": "query",
+                    "description": "Filter results to only blog posts with the specified tag",
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Details of up to 10 of the most recent blog posts",
+                        "schema": {
+                            "$ref": "#/definitions/ApiScriptingGuysGetGet200ApplicationJsonResponse"
+                        }
+                    }
+                },
+                "produces": ["application/json"]
+            }
+        }
+    },
+    "definitions": {
+        "ApiPowerShellTeamGetGet200ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "x-ms-summary": "Date",
+                    "description": "The date the blog was posted",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "title": {
+                    "x-ms-summary": "Title",
+                    "description": "The blog post's title",
+                    "type": "string"
+                },
+                "description": {
+                    "x-ms-summary": "Description",
+                    "description": "A brief intro to the blog post",
+                    "type": "string"
+                },
+                "link": {
+                    "x-ms-summary": "Link",
+                    "description": "The URI to the blog post",
+                    "type": "string"
+                }
+            }
+        },
+        "ApiScriptingGuysGetGet200ApplicationJsonResponse": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "x-ms-summary": "Date",
+                    "description": "The date the blog was posted",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "title": {
+                    "x-ms-summary": "Title",
+                    "description": "The blog post's title",
+                    "type": "string"
+                },
+                "description": {
+                    "x-ms-summary": "Description",
+                    "description": "A brief intro to the blog post",
+                    "type": "string"
+                },
+                "link": {
+                    "x-ms-summary": "Link",
+                    "description": "The URI to the blog post",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": []
+}
